@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".TicketVerification">
+
+        <ImageView
+            android:layout_width="250sp"
+            android:layout_height="250sp"
+            android:contextClickable="true"
+            android:layout_marginTop="10sp"
+            android:id="@+id/ticket_image"
+            android:src="@drawable/uploa_ticket_dark"
+            android:layout_centerHorizontal="true"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Aadhar No."
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="18sp"
+            android:inputType="number"
+            android:maxLength="16"
+            android:layout_marginTop="10sp"
+            android:padding="15sp"
+            android:layout_below="@id/ticket_number"
+            android:background="@drawable/styling"
+            android:layout_marginRight="18sp"
+            android:id="@+id/ticket_aadhar"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your ticket No."
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="18sp"
+            android:layout_marginTop="15sp"
+            android:layout_below="@id/ticket_image"
+            android:padding="15sp"
+            android:background="@drawable/styling"
+            android:layout_marginRight="18sp"
+            android:id="@+id/ticket_number"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginTop="20sp"
+            android:id="@+id/text"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/ticket_aadhar"
+            android:text="Choose If You Belong to any category :"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_group1"
+            android:layout_marginTop="10sp"
+            android:layout_marginStart="10sp"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_below="@id/text">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/rd_senior"
+                android:text="Senior Citizen"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0sp"
+                android:layout_weight="1"
+                android:id="@+id/rd_preg"
+                android:text="Pregnant Women"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1sp"
+                android:layout_weight="1"
+                android:id="@+id/rd_special"
+                android:text="Specially abled"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginTop="10sp"
+            android:visibility="gone"
+            android:id="@+id/text_note"
+            android:textColor="@android:color/black"
+            android:layout_below="@id/radio_group1"
+            android:text="Note: Please carry an age proof along with you"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linear"
+            android:layout_marginStart="30sp"
+            android:layout_marginTop="40sp"
+            android:layout_below="@id/radio_group1"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_cities"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:text="Choose Your Boarding Station :"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:id="@+id/all_cities"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear"
+            android:layout_marginTop="40sp"
+            android:textSize="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="50sp"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/buttons"
+            android:id="@+id/submit_button"
+            android:text="Submit"/>
+
+    </RelativeLayout>
+</ScrollView>
