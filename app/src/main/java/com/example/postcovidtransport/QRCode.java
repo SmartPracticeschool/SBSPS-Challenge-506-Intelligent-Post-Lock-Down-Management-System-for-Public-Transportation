@@ -1,5 +1,6 @@
 package com.example.postcovidtransport;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -36,11 +37,14 @@ public class QRCode extends AppCompatActivity {
         DataofUser dataofUser = Parcels.unwrap(parcelable);
 
         QRCodeFragment qrCodeFragment = new QRCodeFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("test","sarthak");
-       // bundle.putParcelable("data",parcelable);
-        qrCodeFragment.setArguments(bundle);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("test","sarthak");
+//       // bundle.putParcelable("data",parcelable);
+//        qrCodeFragment.setArguments(bundle);
+        Intent i = new Intent(QRCode.this,QRCodeFragment.class);
+        i.putExtra("a","sarthak");
         Log.e("check here ",dataofUser.getPNRNo());
+        startActivity(i);
 
     }
 

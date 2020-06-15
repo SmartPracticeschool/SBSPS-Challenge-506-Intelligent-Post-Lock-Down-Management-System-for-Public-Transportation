@@ -25,9 +25,10 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mLoginBtn;
-    TextView mCreateBtn;
+    TextView mCreateBtn,loginwithotp;
     ProgressBar progressBar;
     FirebaseAuth fAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         mLoginBtn = findViewById(R.id.loginBtn);
         mCreateBtn = findViewById(R.id.createText);
+        loginwithotp = findViewById(R.id.loginwithotp);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,5 +96,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        loginwithotp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),OtpActivity.class));
+            }
+        });
+
     }
+
 }

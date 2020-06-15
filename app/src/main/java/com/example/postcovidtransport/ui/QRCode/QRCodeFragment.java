@@ -1,5 +1,6 @@
 package com.example.postcovidtransport.ui.QRCode;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -43,6 +44,7 @@ public class QRCodeFragment extends Fragment {
         generate = root.findViewById(R.id.button);
         //DataofUser dataofUser = new DataofUser();
         Log.e("A",getArguments().getString("test"));
+
         //Log.e("A",dataofUser.getScheduleDept());
        // Bundle bundle = new Bundle();
 //        Log.e("A",bundle.getString("test"));
