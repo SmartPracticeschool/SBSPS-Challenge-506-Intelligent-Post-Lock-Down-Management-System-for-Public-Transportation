@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.os.PatternMatcher;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -25,16 +26,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.postcovidtransport.ui.QRCode.QRCodeFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+
+import org.parceler.Parcels;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TicketVerification extends AppCompatActivity {
     private EditText ticket_number,ticket_aadhar_number;
@@ -47,7 +52,7 @@ public class TicketVerification extends AppCompatActivity {
     private boolean flag=false;
     private Uri imageUri;
     public String dataonticket;
-
+    DataofUser dataofUser = new DataofUser();
     private String ticketno,aadharno;
     private static final int gallery_pic_code =1;
 
@@ -72,15 +77,18 @@ public class TicketVerification extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkFields();
+                submit();
             }
         });
 
     }
 
-    private void submit()
+    private void submit ()
     {
-        Intent intent = new Intent();
-        intent.putExtra("text",ticketno + ticket_aadhar_number);
+        Parcelable parcelable = Parcels.wrap(dataofUser);
+        Intent intent = new Intent(getApplicationContext(), QRCode.class);
+            intent.putExtra("dataofuser",parcelable);
+//       // intent.putExtra("dataofuser", (Serializable) dataofUser);
         startActivity(intent);
     }
     @Override
@@ -93,6 +101,7 @@ public class TicketVerification extends AppCompatActivity {
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
                 ticket_image.setImageBitmap(bitmap);
+                flag = true;
                 FirebaseVisionImage image;
                 try {
                     image = FirebaseVisionImage.fromFilePath(getApplicationContext(), imageUri);
@@ -102,7 +111,9 @@ public class TicketVerification extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(FirebaseVisionText result) {
                                     dataonticket = result.getText();
-                                    Log.e("TEXT",dataonticket);
+                                   dataofUser =  fetchdatafromimage(dataonticket);
+                                    //Log.e("TEXT",dataonticket);
+                                    ticket_number.setText(dataofUser.getPNRNo());
                                 }
                             })
                             .addOnFailureListener(
@@ -122,7 +133,26 @@ public class TicketVerification extends AppCompatActivity {
             }
         }
     }
+ private DataofUser fetchdatafromimage (String dataonticket) {
+        DataofUser dataofUser = new DataofUser();
 
+      //Fetching pnr_no
+     Pattern p = Pattern.compile("(PNR No: )");
+     Matcher matcher = p .matcher(dataonticket);
+     while (matcher.find()) {
+         int startindexofPNR =   matcher.end();
+         dataofUser.setPNRNo(dataonticket.substring(startindexofPNR, startindexofPNR+10));
+     }
+
+     // fetching scheduled departure
+     Pattern p1 = Pattern.compile("(Scheduled Departure: )");
+     Matcher matcher1 = p .matcher(dataonticket);
+     while (matcher.find()) {
+         int startindexofPNR =   matcher1.end();
+         dataofUser.setScheduleDept(dataonticket.substring(startindexofPNR, startindexofPNR+5));
+     }
+     return dataofUser;
+    }
     private void initialise()
     {
         ticket_number = (EditText) findViewById(R.id.ticket_number);

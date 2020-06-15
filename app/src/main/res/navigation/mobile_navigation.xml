@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/QRCode">
+
+    <fragment
+        android:id="@+id/QRCode"
+        android:name="com.example.postcovidtransport.ui.QRCode.QRCodeFragment"
+        android:label="@string/QRCODE"
+        tools:layout="@layout/fragment_qrcode" />
+
+    <fragment
+        android:id="@+id/report_unhygiene"
+        android:name="com.example.postcovidtransport.ui.report.reportFragment"
+        android:label="@string/ReportUnhygeine"
+        tools:layout="@layout/fragment_report" />
+
+
+</navigation>
