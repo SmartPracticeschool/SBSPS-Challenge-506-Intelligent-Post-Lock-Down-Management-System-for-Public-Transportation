@@ -4,8 +4,8 @@ import org.parceler.Parcel;
 
 @Parcel
 public class DataofUser {
-    String PNRNo;
-     String scheduleDept;
+    private String PNRNo;
+     private String scheduleDept;
 
     public DataofUser() {
     }

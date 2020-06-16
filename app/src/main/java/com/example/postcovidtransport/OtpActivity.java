@@ -47,8 +47,8 @@ public class OtpActivity extends AppCompatActivity {
         sendotpbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation hold = AnimationUtils.loadAnimation(this, R.anim.hold);
-                final Animation translateScale = AnimationUtils.loadAnimation(this, R.anim.zoomin);
+                Animation animation = AnimationUtils.loadAnimation(OtpActivity.this, R.anim.bounce);
+              //  final Animation translateScale = AnimationUtils.loadAnimation(this, R.anim.zoomin);
                 String code = "91";
                 String number = phonenumberetxt.getText().toString().trim();
                 if (number.isEmpty() || number.length() < 10) {
@@ -59,18 +59,22 @@ public class OtpActivity extends AppCompatActivity {
                  phonenumber = "+" + code + number;
                 Toast.makeText(getApplicationContext(),"Otp sent sucessfully",Toast.LENGTH_LONG).show();
                 sendverificationcode(phonenumber);
+                sendotpbtn.startAnimation(animation);
+
             }
         });
 
         signinbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(OtpActivity.this, R.anim.bounce);
                     String code = otpcode.getText().toString().trim();
                     if ((code.isEmpty() || code.length() < 6)){
                         otpcode.setError("Enter code...");
                         otpcode.requestFocus();
                         return;
                     }
+                signinbtn.startAnimation(animation);
                     verifycode(code);
                 }
         });
