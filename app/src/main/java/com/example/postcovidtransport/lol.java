@@ -2,12 +2,15 @@ package com.example.postcovidtransport;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +21,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +30,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.postcovidtransport.aadhar.ValidateAadhar;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
@@ -36,40 +42,37 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class TicketVerification extends AppCompatActivity {
-    private EditText ticket_number,ticket_aadhar_number;
+public class lol extends AppCompatActivity {
+    private EditText ticket_aadhar_number;
     private ImageView ticket_image;
     private RadioGroup radioGroup1;
     private RadioButton rd_senior,rd_preg,rd_special;
     private Button submit;
-    private TextView text_note,text_cities,text;
-    private boolean flag=false;
-    private Uri imageUri;
-    public String dataonticket;
-    DataofUser dataofUser = new DataofUser();
-    private String ticketno,aadharno;
-    private static final int gallery_pic_code =1;
-    private RequestQueue requestQueue;
-    private ArrayList cities_list;
+    private TextView text_note,text,text_cities,text_info;
     private AutoCompleteTextView cities_editText;
+
+    private boolean flag=false;
+    private RequestQueue requestQueue;
+
+    private String ticketno,aadharno;
+    public String dataonticket;
+    private ArrayList cities_list;
+    private static final int gallery_pic_code =1;
+    private Uri imageUri;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ticket_verification);
+        setContentView(R.layout.activity_lol);
+
         cities_list = new ArrayList();
         initialise();
         json();
-
         ticket_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,71 +86,57 @@ public class TicketVerification extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkFields())
-                submit();
+                checkFields();
+                if (!cities_editText.getText().toString().isEmpty()){
+                    openDialog();
+                }
             }
         });
+
     }
 
-     public void json(){
-        // fetch city from json array
-         Log.e("a","in json");
-        requestQueue = Volley.newRequestQueue(this);
-
-        //String url = "http://www.json-generator.com/api/json/get/bUqVBMBTyq?indent=2";
-        String url =  "http://www.json-generator.com/api/json/get/cgoxLceAlK?indent=2";
-
-        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("a","before try");
-                        try {
-                            Log.e("a","in try");
-                            JSONArray jsonArray = response.getJSONArray("cities");
-
-                            for (int i=0;i<jsonArray.length();i++){
-                                JSONObject cities = jsonArray.getJSONObject(i);
-                                String city = cities.getString("City");
-                                cities_list.add(city);
-
-                                Log.d("", city+ ",");
-                            }
-                            Log.d("Total Size Value is:  ", cities_list.size()+"");
 
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d("Error Occured :  " ,error.getMessage());
-            }
-        });
-        requestQueue.add(request);
-    }
-
-    private void submit ()
+    private void openDialog()
     {
-       // Parcelable parcelable = Parcels.wrap(dataofUser);
-        Intent intent = new Intent(getApplicationContext(), QRCode.class);
-         //   intent.putExtra("dataofuser",parcelable);
-//       // intent.putExtra("dataofuser", (Serializable) dataofUser);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setTitle("Information");
+        builder.setMessage("Your Verification will be processed at your selected boarding station");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.show();
+
+        //dialog.show();
+    }
+
+    private void submit()
+    {
+
+        Intent intent = new Intent();
+        intent.putExtra("text",ticketno + ticket_aadhar_number);
         startActivity(intent);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == gallery_pic_code && resultCode == RESULT_OK && data!=null){
             imageUri = data.getData();
-            // ML
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
                 ticket_image.setImageBitmap(bitmap);
-                flag = true;
                 FirebaseVisionImage image;
                 try {
                     image = FirebaseVisionImage.fromFilePath(getApplicationContext(), imageUri);
@@ -157,9 +146,7 @@ public class TicketVerification extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(FirebaseVisionText result) {
                                     dataonticket = result.getText();
-                                   dataofUser =  fetchdatafromimage(dataonticket);
-                                 //   Log.e("TEXT",dataonticket);
-                                    ticket_number.setText(dataofUser.getPNRNo());
+                                    Log.e("TEXT",dataonticket);
                                 }
                             })
                             .addOnFailureListener(
@@ -179,38 +166,10 @@ public class TicketVerification extends AppCompatActivity {
             }
         }
     }
- private DataofUser fetchdatafromimage (String dataonticket) {
-        DataofUser dataofUser = new DataofUser();
 
-      //Fetching pnr_no
-     Pattern p = Pattern.compile("(PNR No: )");
-     Matcher matcher = p .matcher(dataonticket);
-     while (matcher.find()) {
-         int startindexofPNR =   matcher.end();
-         dataofUser.setPNRNo(dataonticket.substring(startindexofPNR, startindexofPNR+10));
-     }
-
-     // fetching scheduled departure
-     Pattern p1 = Pattern.compile("(Scheduled Departure: )");
-     Matcher matcher1 = p .matcher(dataonticket);
-     while (matcher.find()) {
-         int startindexofPNR =   matcher1.end();
-         dataofUser.setScheduleDept(dataonticket.substring(startindexofPNR, startindexofPNR+5));
-     }
-
-     //fetching Date of Booking:
-     Pattern p2 = Pattern.compile("(Date of Booking:)");
-     Matcher matcher2 = p .matcher(dataonticket);
-     while (matcher.find()) {
-         int startindexofPNR =   matcher1.end();
-         dataofUser.setDate_of_Booking(dataonticket.substring(startindexofPNR, startindexofPNR+25));
-     }
-       //  Log.e("a",dataofUser.getDate_of_Booking());
-     return dataofUser;
-    }
     private void initialise()
     {
-        ticket_number = (EditText) findViewById(R.id.ticket_number);
+        text_info = (TextView) findViewById(R.id.text_info);
         ticket_aadhar_number = (EditText)findViewById(R.id.ticket_aadhar);
 
         ticket_image = (ImageView) findViewById(R.id.ticket_image);
@@ -233,40 +192,72 @@ public class TicketVerification extends AppCompatActivity {
 
     }
 
-    private boolean checkFields() {
-        ticketno = ticket_number.getText().toString().trim();
+    private void checkFields() {
         aadharno = ticket_aadhar_number.getText().toString().trim();
 
         if (rd_senior.isChecked()) {
             text_note.setVisibility(View.VISIBLE);
         }
-        if (ticketno.isEmpty()) {
-            ticket_number.setError("Field Required");
-            ticket_number.requestFocus();
-            return false;
+
+        if (cities_editText.getText().toString().isEmpty()){
+            cities_editText.setError("Field Required");
+            cities_editText.requestFocus();
+            return;
         }
+
         if (aadharno.isEmpty()) {
             ticket_aadhar_number.setError("Field Required");
             ticket_aadhar_number.requestFocus();
-            return false;
+            return;
         }
-        if (aadharno.length() != 12) {
+        if (aadharno.length() != 16) {
             ticket_aadhar_number.setError("Invalid");
             ticket_aadhar_number.requestFocus();
-            return false;
+            return;
         }
-        if (!ValidateAadhar.validateAadhar(aadharno)){
-                ticket_aadhar_number.setError("invalid aadhar no");
-               // ticket_aadhar_number.setFocusable(true);
-                ticket_aadhar_number.requestFocus();
-                return false;
-            }
-
         if (!flag){
             Toast.makeText(getApplicationContext(),"Image required",Toast.LENGTH_SHORT).show();
-            return false;
+            return;
         }
-    return true;
+
+    }
+
+    void json(){
+
+        requestQueue = Volley.newRequestQueue(this);
+
+        String url = "http://www.json-generator.com/api/json/get/cgoxLceAlK?indent=2";
+
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray jsonArray = response.getJSONArray("cities");
+
+                            for (int i=0;i<jsonArray.length();i++){
+                                JSONObject cities = jsonArray.getJSONObject(i);
+                                String city = cities.getString("City");
+                                cities_list.add(city);
+
+                                Log.d("", city+ ",");
+                            }
+                            Log.d("Total Size Value is:  ", cities_list.size()+"");
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("Error Occured :  " ,error.getMessage());
+            }
+        });
+
+        requestQueue.add(request);
+
     }
 
 }

@@ -31,8 +31,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //holder.itemView.setTag(titlename.get(position));
-        Log.e("a",position+" ");
-        Log.e("a",titlename.get(position).getTitle()+" ");
+      //  Log.e("a",position+" ");
+        //Log.e("a",titlename.get(position).getTitle()+" ");
 
 
         holder.title.setText(titlename.get(position).getTitle());

@@ -6,10 +6,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.postcovidtransport.about.Aboutus;
+import com.example.postcovidtransport.ui.QRCode.QRCodeFragment;
+import com.example.postcovidtransport.ui.report.reportFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -26,9 +29,9 @@ public class QRCode extends AppCompatActivity {
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
 //                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
 //                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
+        //NavigationUI.setupWithNavController(navView, navController);
       //  Parcelable parcelable = getIntent().getParcelableExtra("dataofuser");
         //DataofUser dataofUser = Parcels.unwrap(parcelable);
 
@@ -41,6 +44,24 @@ public class QRCode extends AppCompatActivity {
       //  i.putExtra("a","sarthak");
         //Log.e("check here ",dataofUser.getPNRNo());
        // startActivity(i);
+        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFrag = null;
+                switch (item.getItemId()){
+                    case R.id.qrcode:
+                        selectedFrag = new QRCodeFragment("Shaurya");
+                        break;
+                    case R.id.report_unhygiene:
+                        selectedFrag = new reportFragment("test");
+                        break;
+                    default:
+                        return false;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFrag).commit();
+                return true;
+            }
+        });
 
     }
 

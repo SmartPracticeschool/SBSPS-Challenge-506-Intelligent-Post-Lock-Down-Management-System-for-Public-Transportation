@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/QRCode">
+    app:startDestination="@+id/report_unhygiene">
 
     <fragment
         android:id="@+id/QRCode"

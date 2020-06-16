@@ -25,7 +25,7 @@ ArrayList<aboutmodel> titles;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecyclerView.Adapter adapter = new Adapter(titles);
-       Log.e("a",adapter.getItemCount()+" ");
+     //  Log.e("a",adapter.getItemCount()+" ");
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

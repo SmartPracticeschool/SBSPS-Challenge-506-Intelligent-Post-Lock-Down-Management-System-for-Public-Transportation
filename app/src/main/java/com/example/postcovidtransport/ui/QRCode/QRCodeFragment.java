@@ -31,6 +31,11 @@ import org.parceler.Parcels;
 public class QRCodeFragment extends Fragment {
     ImageView imgView;
     EditText titletxt;
+    String s ;
+    public QRCodeFragment(String s) {
+    this.s = s;
+    }
+
     Button generate;
     private QRCodeViewModel QRCodeViewModel;
 
@@ -42,6 +47,7 @@ public class QRCodeFragment extends Fragment {
         imgView = root.findViewById(R.id.code);
         titletxt = root.findViewById(R.id.text1);
         generate = root.findViewById(R.id.button);
+        titletxt.setText(s);
         //DataofUser dataofUser = new DataofUser();
        // Log.e("A",getArguments().getString("test"));
 

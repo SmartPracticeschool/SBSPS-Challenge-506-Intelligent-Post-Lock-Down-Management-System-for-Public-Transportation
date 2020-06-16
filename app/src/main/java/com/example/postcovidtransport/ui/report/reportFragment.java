@@ -1,6 +1,7 @@
 package com.example.postcovidtransport.ui.report;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,10 @@ import androidx.fragment.app.Fragment;
 import com.example.postcovidtransport.R;
 
 public class reportFragment extends Fragment {
+    String s;
+    public reportFragment(String s) {
+        this.s = s;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -26,6 +31,8 @@ public class reportFragment extends Fragment {
 //        });
 //        return root;
         View root = inflater.inflate(R.layout.fragment_report, container, false);
+        Log.e("a",s);
         return root;
+
     }
 }
