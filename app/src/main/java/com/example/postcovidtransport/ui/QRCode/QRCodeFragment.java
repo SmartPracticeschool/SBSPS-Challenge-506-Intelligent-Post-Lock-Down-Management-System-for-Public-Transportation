@@ -43,7 +43,7 @@ public class QRCodeFragment extends Fragment {
         titletxt = root.findViewById(R.id.text1);
         generate = root.findViewById(R.id.button);
         //DataofUser dataofUser = new DataofUser();
-        Log.e("A",getArguments().getString("test"));
+       // Log.e("A",getArguments().getString("test"));
 
         //Log.e("A",dataofUser.getScheduleDept());
        // Bundle bundle = new Bundle();

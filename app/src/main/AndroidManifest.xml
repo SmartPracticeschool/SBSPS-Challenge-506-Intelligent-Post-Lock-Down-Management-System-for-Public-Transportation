@@ -9,10 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".about.Aboutus"></activity>
+        <activity android:name=".OtpActivity" />
         <activity
             android:name=".QRCode"
-            android:label="@string/title_activity_q_r_code"></activity> <!-- <meta-data -->
+            android:label="@string/title_activity_q_r_code" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- <meta-data -->
         <!-- android:name="com.google.mlkit.vision.DEPENDENCIES" -->
         <!-- android:value="ocr" /> -->
         <meta-data
@@ -22,14 +30,7 @@
         <activity android:name=".TicketVerification">
         </activity>
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SplashScreen" />
         <activity android:name=".MainActivity" />
     </application>

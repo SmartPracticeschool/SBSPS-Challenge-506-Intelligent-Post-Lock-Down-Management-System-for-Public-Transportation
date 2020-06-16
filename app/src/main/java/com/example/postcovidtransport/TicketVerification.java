@@ -26,6 +26,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.postcovidtransport.aadhar.ValidateAadhar;
 import com.example.postcovidtransport.ui.QRCode.QRCodeFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -76,7 +77,7 @@ public class TicketVerification extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkFields();
+                if(checkFields())
                 submit();
             }
         });
@@ -85,9 +86,9 @@ public class TicketVerification extends AppCompatActivity {
 
     private void submit ()
     {
-        Parcelable parcelable = Parcels.wrap(dataofUser);
+       // Parcelable parcelable = Parcels.wrap(dataofUser);
         Intent intent = new Intent(getApplicationContext(), QRCode.class);
-            intent.putExtra("dataofuser",parcelable);
+         //   intent.putExtra("dataofuser",parcelable);
 //       // intent.putExtra("dataofuser", (Serializable) dataofUser);
         startActivity(intent);
     }
@@ -112,7 +113,7 @@ public class TicketVerification extends AppCompatActivity {
                                 public void onSuccess(FirebaseVisionText result) {
                                     dataonticket = result.getText();
                                    dataofUser =  fetchdatafromimage(dataonticket);
-                                    //Log.e("TEXT",dataonticket);
+                                    Log.e("TEXT",dataonticket);
                                     ticket_number.setText(dataofUser.getPNRNo());
                                 }
                             })
@@ -175,7 +176,7 @@ public class TicketVerification extends AppCompatActivity {
 
     }
 
-    private void checkFields() {
+    private boolean checkFields() {
         ticketno = ticket_number.getText().toString().trim();
         aadharno = ticket_aadhar_number.getText().toString().trim();
 
@@ -185,23 +186,30 @@ public class TicketVerification extends AppCompatActivity {
         if (ticketno.isEmpty()) {
             ticket_number.setError("Field Required");
             ticket_number.requestFocus();
-            return;
+            return false;
         }
         if (aadharno.isEmpty()) {
             ticket_aadhar_number.setError("Field Required");
             ticket_aadhar_number.requestFocus();
-            return;
+            return false;
         }
-        if (aadharno.length() != 16) {
+        if (aadharno.length() != 12) {
             ticket_aadhar_number.setError("Invalid");
             ticket_aadhar_number.requestFocus();
-            return;
+            return false;
         }
+        if (!ValidateAadhar.validateAadhar(aadharno)){
+                ticket_aadhar_number.setError("invalid aadhar no");
+               // ticket_aadhar_number.setFocusable(true);
+                ticket_aadhar_number.requestFocus();
+                return false;
+            }
+
         if (!flag){
             Toast.makeText(getApplicationContext(),"Image required",Toast.LENGTH_SHORT).show();
-            return;
+            return false;
         }
-
+    return true;
     }
 
 }
