@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,7 +94,7 @@ public class TicketVerification extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         //String url = "http://www.json-generator.com/api/json/get/bUqVBMBTyq?indent=2";
-        String url =  "http://www.json-generator.com/api/json/get/cgoxLceAlK?indent=2";
+        String url =  "https://www.json-generator.com/api/json/get/cgoxLceAlK?indent=2";
 
         final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

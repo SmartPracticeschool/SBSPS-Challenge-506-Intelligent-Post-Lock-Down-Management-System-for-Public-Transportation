@@ -1,9 +1,11 @@
 package com.example.postcovidtransport.about;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -12,7 +14,7 @@ import com.example.postcovidtransport.R;
 
 import java.util.ArrayList;
 
-public class Aboutus extends AppCompatActivity {
+public class Aboutus extends AppCompatActivity implements Adapter.onClick {
 RecyclerView recyclerView;
 ArrayList<aboutmodel> titles;
     @Override
@@ -24,7 +26,7 @@ ArrayList<aboutmodel> titles;
         fillarraylist();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        RecyclerView.Adapter adapter = new Adapter(titles);
+        RecyclerView.Adapter adapter = new Adapter(titles,this);
      //  Log.e("a",adapter.getItemCount()+" ");
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -50,5 +52,32 @@ ArrayList<aboutmodel> titles;
         titles.add(a2);
         titles.add(a3);
         titles.add(a4);
+    }
+
+    @Override
+    public void onClick(int position) {
+        Log.e("pos",position+" ");
+        if (position == 0){
+            sendmail();
+        }
+        else if (position == 2) {
+            
+        }
+    }
+    private void sendmail() {
+        String emailaddress = "immutablecoders@gmail.com";
+        String subject = "BUG REPORT";
+        String message = "--Support Info--\n" +
+                "Debug info: +918557024411\n" +
+                "Version: 1.0.1\n" +
+                "App: com.example.postcovidtransport\n" +
+                "Socket Conn: UP\n" +
+                "Target: release\n" ;
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.putExtra(Intent.EXTRA_EMAIL,new String[]{emailaddress});
+        i.putExtra(Intent.EXTRA_SUBJECT,subject);
+        i.putExtra(Intent.EXTRA_TEXT,message);
+        i.setType("message/rfc822");
+        startActivity(Intent.createChooser(i,"choose an email client"));
     }
 }

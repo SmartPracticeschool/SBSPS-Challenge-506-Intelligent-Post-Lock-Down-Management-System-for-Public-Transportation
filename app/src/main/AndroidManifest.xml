@@ -11,24 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lol">
+        <activity android:name=".about.Aboutus" />
+        <activity android:name=".OtpActivity" />
+        <activity
+            android:name=".QRCode"
+            android:label="@string/title_activity_q_r_code">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".about.Aboutus" />
-        <activity android:name=".OtpActivity" />
-        <activity
-            android:name=".QRCode"
-            android:label="@string/title_activity_q_r_code"></activity>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="ocr" />
 
         <activity android:name=".TicketVerification">
+
         </activity>
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity" />
