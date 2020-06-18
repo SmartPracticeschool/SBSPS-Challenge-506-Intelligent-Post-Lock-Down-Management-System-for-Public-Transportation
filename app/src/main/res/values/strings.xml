@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">PostCovidTransport</string>
-    <string name="title_activity_q_r_code">MainActivity</string>
-    <string name="QRCODE">QRCode</string>
-    <string name="ReportUnhygeine">Report Unhygeine</string>
-</resources>
