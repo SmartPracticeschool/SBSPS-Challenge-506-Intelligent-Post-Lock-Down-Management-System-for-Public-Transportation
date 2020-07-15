@@ -25,6 +25,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 <img src="Screenshots/prioritizedentry.jpg" width="250">
 
 4. App will **maintain a record of travels made by a particular passenger** and notify if a passenger travels more than 5 times a month. Then the passenger shall need to provide a particular reason for travel and get a monthly pass for travelling.
+<br>
 <img src="Screenshots/db1.jpeg" width="250">  <img src="Screenshots/db2.jpeg" width="250"> 
 
 
