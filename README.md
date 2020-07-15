@@ -38,6 +38,10 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 2. Discipline as people will report in their particular time slots to board the train. 
 
+## APPLICATION FLOW
+ <img src="Flow%20Charts/APP%20WORK%20FLOW.png" width="250"> <br>
+  <img src="Flow%20Charts/Architectural%20flow.png" width="250"> 
+
 ## Technology Stack:
 - Software Used : Android Studio (3.6.3),Adobe Illustrator, Corel DRAW
 - Languages: Java(J2ME),XML(UI/UX Development)
@@ -73,3 +77,9 @@ Similarly on the click of guidelines button, the user will be taken to another a
 
 ## YOUTUBE LINK
 [Complete explanation video link](https://www.youtube.com/watch?v=xR7iHWfM8lw&feature=youtu.be)
+
+## REPORT
+[Final project Report](https://drive.google.com/file/d/14DTEbi3zhd1D2xlXhCHcgmqJ-UI7Mubz/view?usp=sharing)
+
+## POWER POINT PRESENTATION
+[Power point](https://drive.google.com/file/d/1WVXNW7nqpf2dcH2GV4iyLQmXE12P67dp/view?usp=sharing)
