@@ -2,7 +2,7 @@
 ## General Description :
 The proposal is to make a mobile application to manage post lock down public transportation. During this pandemic the major risk for the spread can be through the use of public transports ,the application will provide an effective solution for the passengers to board a train at railway .
 Our idea is to **schedule the timing of passengers arrival** on the basis of their ticket class , for instance we can have a nominal gap in the arrival time of passengers of the 3.Ac, 2.AC and sleeper class  **resulting in the reduction in the crowd at the stations** .
- <img src="Screenshots/timeslot.jpg" width="250"> 
+ <img src="Screenshots/timeslot.jpeg" width="250"> 
 1. User shall upload an image of a confirmed ticket for his/her travel.
 
 2. The application will **firstly validate the uploaded  image** of ticket based on parameters such as( date of travel, ticket number, payment confirmation, Train number and name),then the user shall be asked to provide an identification proof valid by Government of India/state like aadhaar card just for the purpose of travel validation and shall be securely uploaded on database.
@@ -68,6 +68,7 @@ Similarly on the click of guidelines button, the user will be taken to another a
  <img src="Screenshots/reportunhygiene.jpg" width="250"> 
 
 6. Using the **logout button** in the main activity, the user will be logged out of the application.
+ <img src="Screenshots/about.jpeg" width="250">  <img src="Screenshots/aboutapp.jpeg" width="250">
 
 ## YOUTUBE LINK
 [Complete explanation video link](https://www.youtube.com/watch?v=xR7iHWfM8lw&feature=youtu.be)
