@@ -40,7 +40,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 ## Scope of Work:
 1. When the user opens the application, a **splash screen** will appear with a logo and a social message in it which will run for 3 secs.
-![login](Screenshots/login.jpg)
+<img src="Screenshots/login.jpg" width="100">
 
 2.  Then a **login screen** will open where the user has to input username and password in edit-texts, which will be validated. If not registered,the user will be directed to sign up activity where the user has to provide his personal details.
 
