@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.QRCode.QRCodeFragment">
+
+    <ImageView
+        android:id="@+id/code"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+     />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressbarfortime"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/progress" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/code"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="31dp"
+        android:text="Your time slot for Boarding at station in 24 hour format" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text1"
+        android:layout_marginLeft="105dp"
+        android:textColor="#F43C93"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="31dp"
+         />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time"
+        android:layout_marginLeft="55dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginTop="31dp"
+        android:text="Your Assigned waiting room no :" />
+
+    <TextView
+        android:id="@+id/waitingroomno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text2"
+        android:layout_marginLeft="105dp"
+        android:textColor="#F43C93"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="31dp"
+        android:text="" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/waitingroomno"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="31dp"
+        android:background="@drawable/buttons"
+        android:text="Generate QR Code" />
+</RelativeLayout>

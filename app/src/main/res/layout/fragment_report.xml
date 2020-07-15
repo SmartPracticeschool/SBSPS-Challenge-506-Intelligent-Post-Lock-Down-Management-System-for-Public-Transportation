@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:context=".ui.report.reportFragment"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/report"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Report For Unhygiene"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/safetyguidelinesimg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/report"
+        app:lottie_rawRes="@raw/doctors"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+    <TextView
+        android:id="@+id/seatnotxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/safetyguidelinesimg"
+        android:layout_marginTop="20dp"
+        android:text="ENTER YOUR SEAT NUMBER"
+        android:layout_marginLeft="65dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"></TextView>
+
+    <EditText
+        android:id="@+id/seatnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seatnotxt"
+        android:hint="For ex : S10"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/styling"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/descriptiontxtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seatnumber"
+        android:layout_marginTop="31dp"
+        android:text="DESCRIBE YOUR PROBLEM "
+        android:layout_marginLeft="65dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20dp"></TextView>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_below="@+id/descriptiontxtview"
+        android:hint="Mention your problem \nhere"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/styling"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/reportbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/buttons"
+        android:text=" REPORT " />
+
+</RelativeLayout>
+</ScrollView>

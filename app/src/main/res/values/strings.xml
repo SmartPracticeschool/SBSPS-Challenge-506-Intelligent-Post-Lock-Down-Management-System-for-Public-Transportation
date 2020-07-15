@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PostCovidTransport</string>
+    <string name="title_activity_q_r_code">MainActivity</string>
+    <string name="QRCODE">QRCode</string>
+    <string name="ReportUnhygeine">Report Unhygeine</string>
+    <string-array name="userclass">
+        <item>Choose Your Class</item>
+        <item>3A</item>
+        <item>2A</item>
+        <item>S1</item>
+    </string-array>
+</resources>
