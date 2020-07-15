@@ -6,7 +6,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 1. User shall upload an image of a confirmed ticket for his/her travel.
 
 2. The application will **firstly validate the uploaded  image** of ticket based on parameters such as( date of travel, ticket number, payment confirmation, Train number and name),then the user shall be asked to provide an identification proof valid by Government of India/state like aadhaar card just for the purpose of travel validation and shall be securely uploaded on database.
- <img src="Screenshots/bottomnav.jpeg" width="250"> 
+ <img src="Screenshots/bottomnav.jpg" width="250"> 
 
 3. All valid ticket holders will have to pass through the check in procedures on our app which will **subsequently generate QR-CODE  on user's phones that is valid for some time after verifying the Aadhar Number** .
 
