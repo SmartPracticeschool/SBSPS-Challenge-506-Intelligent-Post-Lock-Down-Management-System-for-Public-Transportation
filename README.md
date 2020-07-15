@@ -16,7 +16,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 ## UNIQUENESS
 1. Checking/scanning of tickets through **QRCode** to  avoid the direct contact of authorities at stations and will eliminate  ticket collectors (TT) or Bus Conductor resulting in less human interaction.
-<img src="Screenshots/qrcode.jpg" width="250">
+<img src="Screenshots/afterscan.jpg" width="250">
 
 2. Those effluents nearby can **board at stations different from the originating station**  which will be in a radius of 10 - 15 km . This will give convenience and more hygiene to the passengers so as to achieve our goal of avoiding the crowding of stations helping the administration to manage things more efficiently .
 <img src="Screenshots/autocomptxtview.jpg" width="250"> 
