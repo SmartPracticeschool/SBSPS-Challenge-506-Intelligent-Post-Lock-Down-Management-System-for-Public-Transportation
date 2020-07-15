@@ -40,5 +40,5 @@ Users shall have to show this qr at the time of check-in to travel which will be
 Similarly on the click of guidelines button, the user will be taken to another activity where the user will be shown particular guidelines to keep oneself safe during and after travel. 
 6)Using the logout button in the main activity, the user will be logged out of the application.
 
-YOUTUBE LINK
+# YOUTUBE LINK
 https://www.youtube.com/watch?v=xR7iHWfM8lw&feature=youtu.be
