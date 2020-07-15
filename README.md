@@ -40,16 +40,18 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 ## Scope of Work:
 1. When the user opens the application, a **splash screen** will appear with a logo and a social message in it which will run for 3 secs.
-<img src="Screenshots/splash.jpg" width="250">
+                    <img src="Screenshots/splash.jpg" width="250">
 
 2.  Then a **login screen** will open where the user has to input username and password in edit-texts, which will be validated. If not registered,the user will be directed to sign up activity where the user has to provide his personal details.
-<img src="Screenshots/login.jpg" width="250">
-<img src="Screenshots/signup.jpg" width="250">
+<img src="Screenshots/login.jpg" width="250">             <img src="Screenshots/signup.jpg" width="250">
+
 
 3. On successful validation, users shall be directed to the **main activity** which will have a Bottom navigation view and a menu bar to select categories like(help, support, guidelines, report a problem) etc. In this activity. there shall be 3 edit-texts 1st for ticket number, second for train no. /PNR  no, third for aadhar no of users. Then the details will be validated on the click of submit button. 
+                     <img src="Screenshots/userverification.jpg" width="250">
 After that the user can select the check-in station from the cities given in the spinner which will vary according to the train's route. 
 
 4. then a new activity will open which will display a **QR Code with ticket details** in it. Also the time slot for check-in will be displayed in the textview and the check-in station in another textview. 
+
 Users shall have to show this qr at the time of check-in to travel which will be generated 2 hours prior to the departure of the train/bus.
 
 5. If a user clicks on the **report cleanliness** button from bottom navigation view in main activity, user will be directed to an activity where there will be certain cues that user will have to answer and the answers will be submitted to concerned authority. 
