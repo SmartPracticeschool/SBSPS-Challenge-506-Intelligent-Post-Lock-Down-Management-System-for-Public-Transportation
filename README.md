@@ -2,7 +2,7 @@
 ## General Description :
 The proposal is to make a mobile application to manage post lock down public transportation. During this pandemic the major risk for the spread can be through the use of public transports ,the application will provide an effective solution for the passengers to board a train at railway .
 Our idea is to **schedule the timing of passengers arrival** on the basis of their ticket class , for instance we can have a nominal gap in the arrival time of passengers of the 3.Ac, 2.AC and sleeper class  **resulting in the reduction in the crowd at the stations** .
- <img src="Screenshots/timeslotforarrival.jpg" width="250"> 
+ <img src="Screenshots/timeslot.jpg" width="250"> 
 1. User shall upload an image of a confirmed ticket for his/her travel.
 
 2. The application will **firstly validate the uploaded  image** of ticket based on parameters such as( date of travel, ticket number, payment confirmation, Train number and name),then the user shall be asked to provide an identification proof valid by Government of India/state like aadhaar card just for the purpose of travel validation and shall be securely uploaded on database.
@@ -11,7 +11,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 3. All valid ticket holders will have to pass through the check in procedures on our app which will **subsequently generate QR-CODE  on user's phones that is valid for some time after verifying the Aadhar Number** .
 
 4. There  will be two **designated  spaces/waiting areas** where the passengers will report according to odd or even numbers based upon the last digit of your ticket number .The said QR_CODE will allow your entry into the waiting areas before boarding .
-
+ <img src="Screenshots/timeslotforarrival.jpg" width="250"> 
 5. Reporting pattern will be allotted at the time of check in.
 
 ## UNIQUENESS
@@ -25,7 +25,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 <img src="Screenshots/prioritizedentry.jpg" width="250">
 
 4. App will **maintain a record of travels made by a particular passenger** and notify if a passenger travels more than 5 times a month. Then the passenger shall need to provide a particular reason for travel and get a monthly pass for travelling.
-<img src="Screenshots/db1.jpeg" width="250">
+<img src="Screenshots/db1.jpeg" width="250">  <img src="Screenshots/db2.jpg" width="250"> 
 
 
 5. **Slots** will allow the crowd to divide and maintain social distance at the time of boarding the train.
@@ -58,6 +58,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 After that the user can select the check-in station from the cities given in the spinner which will vary according to the train's route. 
 
 4. then a new activity will open which will display a **QR Code with ticket details** in it. Also the time slot for check-in will be displayed in the textview and the check-in station in another textview. 
+ <img src="Screenshots/timeslotforarrival.jpg" width="250"> 
 
 
 Users shall have to show this qr at the time of check-in to travel which will be generated 2 hours prior to the departure of the train/bus.
