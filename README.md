@@ -3,6 +3,7 @@
 The proposal is to make a mobile application to manage post lock down public transportation. During this pandemic the major risk for the spread can be through the use of public transports ,the application will provide an effective solution for the passengers to board a train at railway .
 Our idea is to **schedule the timing of passengers arrival** on the basis of their ticket class , for instance we can have a nominal gap in the arrival time of passengers of the 3.Ac, 2.AC and sleeper class  **resulting in the reduction in the crowd at the stations** .
 1. User shall upload an image of a confirmed ticket for his/her travel.
+ <img src="Screenshots/timeslotforarrival.jpg" width="250"> 
 
 2. The application will **firstly validate the uploaded  image** of ticket based on parameters such as( date of travel, ticket number, payment confirmation, Train number and name),then the user shall be asked to provide an identification proof valid by Government of India/state like aadhaar card just for the purpose of travel validation and shall be securely uploaded on database.
 
@@ -14,12 +15,16 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 ## UNIQUENESS
 1. Checking/scanning of tickets through **QRCode** to  avoid the direct contact of authorities at stations and will eliminate  ticket collectors (TT) or Bus Conductor resulting in less human interaction.
+<img src="Screenshots/qrcode.jpg" width="250">
 
 2. Those effluents nearby can **board at stations different from the originating station**  which will be in a radius of 10 - 15 km . This will give convenience and more hygiene to the passengers so as to achieve our goal of avoiding the crowding of stations helping the administration to manage things more efficiently .
+<img src="Screenshots/autocomptxtview.jpg" width="250"> 
 
 3. There will be **prioritised entry based on a special condition like old age person, pregnant women, specially-abled** etc. And they will be allowed to move first into the train irrespective of the time slot or class. 
+<img src="Screenshots/prioritizedentry.jpg" width="250">
 
 4. App will **maintain a record of travels made by a particular passenger** and notify if a passenger travels more than 5 times a month. Then the passenger shall need to provide a particular reason for travel and get a monthly pass for travelling.
+
 
 5. **Slots** will allow the crowd to divide and maintain social distance at the time of boarding the train.
 
@@ -47,7 +52,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 
 3. On successful validation, users shall be directed to the **main activity** which will have a Bottom navigation view and a menu bar to select categories like(help, support, guidelines, report a problem) etc. In this activity. there shall be 3 edit-texts 1st for ticket number, second for train no. /PNR  no, third for aadhar no of users. Then the details will be validated on the click of submit button. 
- <img src="Screenshots/userverification.jpg" width="250"> <img src="Screenshots/prioritizedentry.jpg" width="250"> <img src="Screenshots/autocomptxtview.jpg" width="250"> 
+ <img src="Screenshots/userverification.jpg" width="250">  <img src="Screenshots/autocomptxtview.jpg" width="250"> 
 After that the user can select the check-in station from the cities given in the spinner which will vary according to the train's route. 
 
 4. then a new activity will open which will display a **QR Code with ticket details** in it. Also the time slot for check-in will be displayed in the textview and the check-in station in another textview. 
@@ -56,6 +61,7 @@ Users shall have to show this qr at the time of check-in to travel which will be
 
 5. If a user clicks on the **report cleanliness** button from bottom navigation view in main activity, user will be directed to an activity where there will be certain cues that user will have to answer and the answers will be submitted to concerned authority. 
 Similarly on the click of guidelines button, the user will be taken to another activity where the user will be **shown particular guidelines** to keep oneself safe during and after travel.
+ <img src="Screenshots/reportunhygiene.jpg" width="250"> 
 
 6. Using the **logout button** in the main activity, the user will be logged out of the application.
 
