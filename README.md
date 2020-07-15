@@ -39,7 +39,7 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 2. Discipline as people will report in their particular time slots to board the train. 
 
 ## APPLICATION FLOW
- <img src="Flow%20Charts/APP%20WORK%20FLOW.png" width="250">   <img src="Flow%20Charts/Architectural%20flow.png" width="250"> 
+ <img src="Flow%20Charts/APP%20WORK%20FLOW.png" width="350">   <img src="Flow%20Charts/Architectural%20flow.png" width="350"> 
 
 ## Technology Stack:
 - Software Used : Android Studio (3.6.3),Adobe Illustrator, Corel DRAW
