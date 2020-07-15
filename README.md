@@ -40,9 +40,11 @@ Our idea is to **schedule the timing of passengers arrival** on the basis of the
 
 ## Scope of Work:
 1. When the user opens the application, a **splash screen** will appear with a logo and a social message in it which will run for 3 secs.
-<img src="Screenshots/login.jpg" width="250">
+<img src="Screenshots/splash.jpg" width="250">
 
 2.  Then a **login screen** will open where the user has to input username and password in edit-texts, which will be validated. If not registered,the user will be directed to sign up activity where the user has to provide his personal details.
+<img src="Screenshots/login.jpg" width="250">
+<img src="Screenshots/signup.jpg" width="250">
 
 3. On successful validation, users shall be directed to the **main activity** which will have a Bottom navigation view and a menu bar to select categories like(help, support, guidelines, report a problem) etc. In this activity. there shall be 3 edit-texts 1st for ticket number, second for train no. /PNR  no, third for aadhar no of users. Then the details will be validated on the click of submit button. 
 After that the user can select the check-in station from the cities given in the spinner which will vary according to the train's route. 
