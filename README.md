@@ -1,4 +1,4 @@
-# SBSPS-Challenge-506-Intelligent-Post-Lock-Down-Management-System-for-Public-Transportation
+# Intelligent-Post-Lock-Down-Management-System-for-Public-Transportation
 ## General Description :
 The proposal is to make a mobile application to manage post lock down public transportation. During this pandemic the major risk for the spread can be through the use of public transports ,the application will provide an effective solution for the passengers to board a train at railway .
 Our idea is to **schedule the timing of passengers arrival** on the basis of their ticket class , for instance we can have a nominal gap in the arrival time of passengers of the 3.Ac, 2.AC and sleeper class  **resulting in the reduction in the crowd at the stations** .
@@ -41,4 +41,4 @@ Similarly on the click of guidelines button, the user will be taken to another a
 6)Using the **logout button** in the main activity, the user will be logged out of the application.
 
 ## YOUTUBE LINK
-https://www.youtube.com/watch?v=xR7iHWfM8lw&feature=youtu.be
+[Complete explanation video link](https://www.youtube.com/watch?v=xR7iHWfM8lw&feature=youtu.be)
